@@ -129,4 +129,11 @@ var catListView = {
 	}
 };
 
+var admin = {
+
+	init: function(){
+		this.catForm = document.getElementsByTagName('input');
+	}
+};
+
 octopus.init();
