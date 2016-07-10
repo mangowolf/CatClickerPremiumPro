@@ -48,6 +48,8 @@ var octopus = {
 
 		//retrieve cat info
 		catView.init();
+
+		adminView.init();
 	},
 
 	getCurrentCat: function(){
@@ -129,10 +131,19 @@ var catListView = {
 	}
 };
 
-var admin = {
+var adminView = {
 
 	init: function(){
 		this.catForm = document.getElementsByTagName('input');
+
+		this.toggle();
+	},
+
+	toggle: function(){
+		var adminButton = document.getElementById('cat-admin-button');
+		adminButton.addEventListener('click', function(){
+			document.getElementById("cat-fields").style.visibility="hidden";
+		});
 	}
 };
 
