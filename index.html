@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cat Clicker Premium</title>
-	<!--<style>
+	<style>
 		#cat-fields {
 			visibility: hidden;
 		}
-	</style>*/-->
+	</style>
 </head>
 <body>
 	<ul id="cat-list"></ul>
@@ -16,16 +16,17 @@
 		<div id="cat-count"></div>
 		<img id="cat-img" src="" alt="cat">
 		<div id="admin">
-			<form id="cat-admin-form">
-				<input type="submit" value="Admin" id="cat-admin-button"><br><br>
-				<div id="cat-fields">
-					Cat Name:<input type="text" id="new-cat-name">
+			<input type="button" value="Admin" id="cat-admin-button"><br><br>
+			<div id="cat-fields">
+				<form id="cat-admin-form">
+					Cat Name:<input type="text" name="name" id="new-cat-name">
 					Cat URL:<input type="text" id="new-cat-url">
 					# of Clicks:<input type="text" id="new-click-num"><br><br>
-					<input type="submit" value="Cancel">
-					<input type="submit" value="Save">
-				</div>
-			</form>
+					<input type="button" value="Cancel" id="cancel-button">
+					<input type="button" value="Save" id="save-button">
+				</form>
+			</div>
+
 		</div>
 	</div>
 

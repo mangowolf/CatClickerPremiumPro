@@ -134,15 +134,41 @@ var catListView = {
 var adminView = {
 
 	init: function(){
-		this.catForm = document.getElementsByTagName('input');
 
 		this.toggle();
+		this.save();
 	},
 
 	toggle: function(){
 		var adminButton = document.getElementById('cat-admin-button');
+		var catFields = document.getElementById("cat-fields");
 		adminButton.addEventListener('click', function(){
-			document.getElementById("cat-fields").style.visibility="hidden";
+			return function(){
+				if(catFields.style.visibility == "hidden"){
+					catFields.style.visibility="visible";
+				}
+				else {
+					catFields.style.visibility="hidden";
+				}
+			}();
+		});
+	},
+
+	save: function(){
+		var curCat = octopus.getCurrentCat();
+		var saveButton = document.getElementById("save-button");
+		var newCatName = document.getElementById("new-cat-name");
+		var newCatURL = document.getElementById('new-cat-url');
+		var newClickNum = document.getElementById('new-click-num');
+		saveButton.addEventListener('click', function(){
+			curCat.name = newCatName.value;
+			curCat.imgSrc = newCatURL.value;
+			curCat.clickCount = newClickNum.value;
+			catListView.render();
+			catView.render();
+			//var listItem = document.createElement('li');
+			//var itemValue = document.createTextNode(newCatName.value);
+			//listItem.appendChild(itemValue);
 		});
 	}
 };
