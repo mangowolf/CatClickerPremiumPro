@@ -161,17 +161,17 @@ var adminView = {
 		//var saveButton = document.getElementById("save-button");
 		//console.log(this.newCatName.value);
 		//this.newCatName = document.getElementById("new-cat-name");
-		this.saveButton = document.getElementById("save-button");
+		var saveButton = document.getElementById("save-button");
 		var newCatName = document.getElementById("new-cat-name");
 		var newCatURL = document.getElementById('new-cat-url');
 		var newClickNum = document.getElementById('new-click-num');
-		this.saveButton.addEventListener('click', function(){
+		saveButton.addEventListener('click', function(){
 				//console.log(this.newCatName);
 				//curCat.name = this.newCatName;
 				//this.newCatName = curCat.name;
 			curCat = octopus.getCurrentCat();
 			curCat.name = newCatName.value;
-			console.log(curCat);
+
 			//curCat.imgSrc = newCatURL.value;
 			//curCat.clickCount = newClickNum.value;
 			catListView.render();
