@@ -136,24 +136,33 @@ var adminView = {
 
 	init: function(){
 		//this.newCatName = document.getElementById("new-cat-name");
+		this.adminButton = document.getElementById('cat-admin-button');
 
 		this.toggle();
 		this.save();
 	},
 
 	toggle: function(){
-		var adminButton = document.getElementById('cat-admin-button');
+
 		var catFields = document.getElementById("cat-fields");
-		adminButton.addEventListener('click', function(){
-			return function(){
+		var cancelButton = document.getElementById('cancel-button');
+		console.log(catFields.style);
+		this.adminButton.addEventListener('click', function(){
+			//return function(){
 				if(catFields.style.visibility == "hidden"){
 					catFields.style.visibility="visible";
 				}
-				else {
+				else
+					catFields.style.visibility="hidden";
+			//}();
+		});
+		cancelButton.addEventListener('click', function(){
+				if(catFields.style.visibility == "visible"){
 					catFields.style.visibility="hidden";
 				}
-			}();
-		});
+				else
+					catFields.style.visibility="hidden";
+		})
 	},
 
 	save: function(){
@@ -171,9 +180,8 @@ var adminView = {
 				//this.newCatName = curCat.name;
 			curCat = octopus.getCurrentCat();
 			curCat.name = newCatName.value;
-
-			//curCat.imgSrc = newCatURL.value;
-			//curCat.clickCount = newClickNum.value;
+			curCat.imgSrc = newCatURL.value;
+			curCat.clickCount = newClickNum.value;
 			catListView.render();
 			catView.render();
 			//var listItem = document.createElement('li');
